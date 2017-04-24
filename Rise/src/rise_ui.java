@@ -1,6 +1,8 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import java.awt.GridLayout;
 import javax.swing.JButton;
 
@@ -42,6 +44,11 @@ public class rise_ui {
 		
 		JButton btnHello = new JButton("hello");
 		frame.getContentPane().add(btnHello);
+	
+		JPanel panel = new JPanel();
+		
+		
+	
 	}
-// making a change!!!! here
+
 }
