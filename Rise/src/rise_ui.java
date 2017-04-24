@@ -1,6 +1,8 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import java.awt.CardLayout;
@@ -79,6 +81,9 @@ public class rise_ui {
 		gbc_txtPassword.gridheight = 2;
 		panel.add(txtPassword, gbc_txtPassword);
 		txtPassword.setColumns(10);
+		
+		JButton btnHello = new JButton("hello");
+		frame.getContentPane().add(btnHello);
 	}
 // making a change!!!! here
 }
