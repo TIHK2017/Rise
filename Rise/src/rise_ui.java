@@ -2,6 +2,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import java.awt.GridLayout;
+import javax.swing.JButton;
 
 public class rise_ui {
 
@@ -38,6 +39,9 @@ public class rise_ui {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
+		
+		JButton btnHello = new JButton("hello");
+		frame.getContentPane().add(btnHello);
 	}
 
 }
