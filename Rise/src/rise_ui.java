@@ -47,5 +47,5 @@ public class rise_ui {
 		
 		JPanel panel = new JPanel();
 	}
-
+// making a change!!!! here
 }
