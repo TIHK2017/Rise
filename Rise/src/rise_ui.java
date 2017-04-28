@@ -57,6 +57,10 @@ public class rise_ui {
 	private JScrollPane scrollPane;
 	private JTextArea textArea;
 	private JButton btnNewButton;
+	private JButton btnHome;
+	private JButton btnTemp;
+	private JButton btnExercise;
+	private JButton btnBlinds;
 
 	/**
 	 * Launch the application.
@@ -165,94 +169,97 @@ public class rise_ui {
 		gbc_btnCancel.gridx = 2;
 		gbc_btnCancel.gridy = 7;
 		Login_Panel.add(btnCancel, gbc_btnCancel);
+		ImageIcon imageIcon_small = (new ImageIcon(new ImageIcon("C:\\Images\\SunIcon_Rise.png").getImage().getScaledInstance(80, 60, Image.SCALE_DEFAULT)));
+		TitledBorder title;
+		title = BorderFactory.createTitledBorder("Weather");
+		Border empty = BorderFactory.createEmptyBorder();
 		
 //This set of code creates the Home panel===========================================================================
 		
 		Home_panel = new JPanel();
 		frame.getContentPane().add(Home_panel, "name_1236601911399576");
-		GridBagLayout gbl_Home_panel = new GridBagLayout();
-		gbl_Home_panel.columnWidths = new int[]{0, 19, 0, 0, 0, 0, 0, 0, 67, 30, 0};
-		gbl_Home_panel.rowHeights = new int[]{15, 54, -49, 0, 0, -6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_Home_panel.columnWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_Home_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		Home_panel.setLayout(gbl_Home_panel);
-		ImageIcon imageIcon_small = (new ImageIcon(new ImageIcon("C:\\Images\\SunIcon_Rise.png").getImage().getScaledInstance(80, 60, Image.SCALE_DEFAULT)));
+		Home_panel.setLayout(null);
 		
 		Rise_small = new JLabel("");
+		Rise_small.setBounds(21, 13, 67, 60);
 		Rise_small.setFont(new Font("Segoe Script", Font.PLAIN, 13));
-		GridBagConstraints gbc_Rise_small = new GridBagConstraints();
-		gbc_Rise_small.anchor = GridBagConstraints.SOUTH;
-		gbc_Rise_small.gridwidth = 4;
-		gbc_Rise_small.insets = new Insets(0, 0, 5, 5);
-		gbc_Rise_small.gridx = 1;
-		gbc_Rise_small.gridy = 1;
-		Home_panel.add(Rise_small, gbc_Rise_small);
+		Home_panel.add(Rise_small);
 		Rise_small.setIcon(imageIcon_small);
 		
 		Welcome_banner = new JLabel("Welcome");
+		Welcome_banner.setBounds(116, 19, 155, 54);
 		Welcome_banner.setForeground(new Color(255, 102, 51));
 		Welcome_banner.setFont(new Font("Script MT Bold", Font.PLAIN, 44));
 		Welcome_banner.setBackground(Color.CYAN);
-		GridBagConstraints gbc_Welcome_banner = new GridBagConstraints();
-		gbc_Welcome_banner.anchor = GridBagConstraints.WEST;
-		gbc_Welcome_banner.gridwidth = 4;
-		gbc_Welcome_banner.insets = new Insets(0, 0, 5, 5);
-		gbc_Welcome_banner.gridx = 5;
-		gbc_Welcome_banner.gridy = 1;
-		Home_panel.add(Welcome_banner, gbc_Welcome_banner);
-		TitledBorder title;
-		title = BorderFactory.createTitledBorder("Weather");
+		Home_panel.add(Welcome_banner);
 		
 		Time_Date = new JLabel("[create clock code]");
+		Time_Date.setBounds(16, 79, 314, 115);
 		Time_Date.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Right now, it is...", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 255)));
-		GridBagConstraints gbc_Time_Date = new GridBagConstraints();
-		gbc_Time_Date.fill = GridBagConstraints.BOTH;
-		gbc_Time_Date.gridwidth = 8;
-		gbc_Time_Date.gridheight = 4;
-		gbc_Time_Date.insets = new Insets(0, 0, 5, 5);
-		gbc_Time_Date.gridx = 1;
-		gbc_Time_Date.gridy = 2;
-		Home_panel.add(Time_Date, gbc_Time_Date);
+		Home_panel.add(Time_Date);
 		
 		Weather = new JLabel("[import weather data]");
-		GridBagConstraints gbc_Weather = new GridBagConstraints();
-		gbc_Weather.fill = GridBagConstraints.BOTH;
-		gbc_Weather.gridwidth = 8;
-		gbc_Weather.gridheight = 4;
-		gbc_Weather.insets = new Insets(0, 0, 5, 5);
-		gbc_Weather.gridx = 1;
-		gbc_Weather.gridy = 6;
-		Home_panel.add(Weather, gbc_Weather);
+		Weather.setBounds(16, 199, 314, 106);
+		Home_panel.add(Weather);
 		Weather.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Weather", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 255)));
 		
 		scrollPane = new JScrollPane();
+		scrollPane.setBounds(16, 310, 314, 194);
 		scrollPane.setViewportBorder(new TitledBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Notes ", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 255)), "Notes", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 255)));
-		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
-		gbc_scrollPane.gridwidth = 8;
-		gbc_scrollPane.gridheight = 5;
-		gbc_scrollPane.insets = new Insets(0, 0, 5, 5);
-		gbc_scrollPane.fill = GridBagConstraints.BOTH;
-		gbc_scrollPane.gridx = 1;
-		gbc_scrollPane.gridy = 10;
-		Border empty = BorderFactory.createEmptyBorder();
 		scrollPane.setBorder(empty);
-		Home_panel.add(scrollPane, gbc_scrollPane);
+		Home_panel.add(scrollPane);
 		
 		textArea = new JTextArea();
 		textArea.setRows(2);
 		scrollPane.setViewportView(textArea);
 		
-		btnNewButton = new JButton("New button");
+		btnNewButton = new JButton("Save");
+		btnNewButton.setBounds(269, 512, 61, 25);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNewButton.gridx = 8;
-		gbc_btnNewButton.gridy = 15;
-		Home_panel.add(btnNewButton, gbc_btnNewButton);
+		Home_panel.add(btnNewButton);
 		
+		JButton btnSeeAllNotes = new JButton("See All Notes");
+		btnSeeAllNotes.setBounds(21, 512, 115, 25);
+		Home_panel.add(btnSeeAllNotes);
+		
+		
+	// Bottom banner buttons allow the user to navigate between the different functions================================
+		//Home, Exercise, SmartBlinds, SmartTemp
+		
+		ImageIcon HomeIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Home.png").getImage().getScaledInstance(32, 24, Image.SCALE_DEFAULT)));
+		
+		ImageIcon WeightIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Weight.png").getImage().getScaledInstance(40, 30, Image.SCALE_DEFAULT)));
+		
+		ImageIcon BlindsIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Blinds.png").getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+		
+		ImageIcon TempIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Temp.png").getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+		
+		
+		btnHome = new JButton("");
+		btnHome.setBounds(21, 550, 73, 29);
+		Home_panel.add(btnHome);
+		btnHome.setIcon(HomeIcon);
+		
+		
+		btnExercise = new JButton("");
+		btnExercise.setBounds(99, 550, 73, 29);
+		Home_panel.add(btnExercise);
+		btnExercise.setIcon(WeightIcon);
+		
+		btnBlinds = new JButton("");
+		btnBlinds.setBounds(177, 550, 73, 29);
+		Home_panel.add(btnBlinds);
+		btnBlinds.setIcon(BlindsIcon);
+		
+		btnTemp = new JButton("");
+		btnTemp.setBounds(252, 550, 73, 29);
+		Home_panel.add(btnTemp);
+		btnTemp.setIcon(TempIcon);
+		
+	
 	
 	}
 }
