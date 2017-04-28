@@ -33,6 +33,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JCheckBox;
 import javax.swing.JTextArea;
 import javax.swing.JSeparator;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 
 public class rise_ui {
@@ -46,11 +49,8 @@ public class rise_ui {
 	private JButton btnLogin;
 	private JButton btnCancel;
 	private JPanel Home_panel;
-	private JLayeredPane layeredPane;
-	private JLayeredPane layeredPane_1;
 	private JLabel Welcome_banner;
 	private JLabel Rise_small;
-	private JLabel lblNewLabel_2;
 	private JLabel Rise_image;
 	private JLabel Weather;
 	private JLabel Time_Date;
@@ -61,6 +61,8 @@ public class rise_ui {
 	private JButton btnTemp;
 	private JButton btnExercise;
 	private JButton btnBlinds;
+	private JLabel lblNewLabel;
+	private JPanel panel;
 
 	/**
 	 * Launch the application.
@@ -194,17 +196,17 @@ public class rise_ui {
 		Home_panel.add(Welcome_banner);
 		
 		Time_Date = new JLabel("[create clock code]");
-		Time_Date.setBounds(16, 79, 314, 115);
+		Time_Date.setBounds(16, 79, 309, 115);
 		Time_Date.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Right now, it is...", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 255)));
 		Home_panel.add(Time_Date);
 		
 		Weather = new JLabel("[import weather data]");
-		Weather.setBounds(16, 199, 314, 106);
+		Weather.setBounds(16, 199, 309, 106);
 		Home_panel.add(Weather);
 		Weather.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Weather", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 255)));
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(16, 310, 314, 194);
+		scrollPane.setBounds(16, 310, 309, 194);
 		scrollPane.setViewportBorder(new TitledBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Notes ", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 255)), "Notes", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 255)));
 		scrollPane.setBorder(empty);
 		Home_panel.add(scrollPane);
@@ -214,51 +216,80 @@ public class rise_ui {
 		scrollPane.setViewportView(textArea);
 		
 		btnNewButton = new JButton("Save");
-		btnNewButton.setBounds(269, 512, 61, 25);
+		btnNewButton.setBounds(264, 500, 61, 25);
+		Home_panel.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		Home_panel.add(btnNewButton);
 		
 		JButton btnSeeAllNotes = new JButton("See All Notes");
-		btnSeeAllNotes.setBounds(21, 512, 115, 25);
+		btnSeeAllNotes.setBounds(21, 500, 109, 25);
 		Home_panel.add(btnSeeAllNotes);
 		
+// Bottom banner buttons allow the user to navigate between the different functions================================
+			//Home, Exercise, SmartBlinds, SmartTemp
+			
+			// Create the image icons
+			ImageIcon HomeIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Home.png").getImage().getScaledInstance(32, 24, Image.SCALE_DEFAULT)));
+			ImageIcon WeightIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Weight.png").getImage().getScaledInstance(40, 30, Image.SCALE_DEFAULT)));
+			ImageIcon BlindsIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Blinds3.png").getImage().getScaledInstance(40, 30, Image.SCALE_DEFAULT)));
+			ImageIcon TempIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Temp.png").getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+			
+		panel = new JPanel();
+		panel.setBounds(0, 538, 342, 55);
+		Home_panel.add(panel);
+		GridBagLayout gbl_panel = new GridBagLayout();
+		gbl_panel.columnWidths = new int[]{23, 73, 71, 63, 0, 0, 0};
+		gbl_panel.rowHeights = new int[]{39, 0};
+		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		panel.setLayout(gbl_panel);
 		
-	// Bottom banner buttons allow the user to navigate between the different functions================================
-		//Home, Exercise, SmartBlinds, SmartTemp
-		
-		ImageIcon HomeIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Home.png").getImage().getScaledInstance(32, 24, Image.SCALE_DEFAULT)));
-		
-		ImageIcon WeightIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Weight.png").getImage().getScaledInstance(40, 30, Image.SCALE_DEFAULT)));
-		
-		ImageIcon BlindsIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Blinds.png").getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
-		
-		ImageIcon TempIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Temp.png").getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
-		
-		
+		// Create the buttons and input the images
 		btnHome = new JButton("");
-		btnHome.setBounds(21, 550, 73, 29);
-		Home_panel.add(btnHome);
 		btnHome.setIcon(HomeIcon);
-		
+		GridBagConstraints gbc_btnHome = new GridBagConstraints();
+		gbc_btnHome.fill = GridBagConstraints.BOTH;
+		gbc_btnHome.insets = new Insets(0, 0, 0, 5);
+		gbc_btnHome.gridx = 1;
+		gbc_btnHome.gridy = 0;
+		panel.add(btnHome, gbc_btnHome);
 		
 		btnExercise = new JButton("");
-		btnExercise.setBounds(99, 550, 73, 29);
-		Home_panel.add(btnExercise);
 		btnExercise.setIcon(WeightIcon);
+		GridBagConstraints gbc_btnExercise = new GridBagConstraints();
+		gbc_btnExercise.anchor = GridBagConstraints.NORTHWEST;
+		gbc_btnExercise.insets = new Insets(0, 0, 0, 5);
+		gbc_btnExercise.gridx = 2;
+		gbc_btnExercise.gridy = 0;
+		panel.add(btnExercise, gbc_btnExercise);
 		
 		btnBlinds = new JButton("");
-		btnBlinds.setBounds(177, 550, 73, 29);
-		Home_panel.add(btnBlinds);
 		btnBlinds.setIcon(BlindsIcon);
+		GridBagConstraints gbc_btnBlinds = new GridBagConstraints();
+		gbc_btnBlinds.anchor = GridBagConstraints.NORTHWEST;
+		gbc_btnBlinds.insets = new Insets(0, 0, 0, 5);
+		gbc_btnBlinds.gridx = 3;
+		gbc_btnBlinds.gridy = 0;
+		panel.add(btnBlinds, gbc_btnBlinds);
 		
 		btnTemp = new JButton("");
-		btnTemp.setBounds(252, 550, 73, 29);
-		Home_panel.add(btnTemp);
 		btnTemp.setIcon(TempIcon);
+		GridBagConstraints gbc_btnTemp = new GridBagConstraints();
+		gbc_btnTemp.insets = new Insets(0, 0, 0, 5);
+		gbc_btnTemp.anchor = GridBagConstraints.NORTHWEST;
+		gbc_btnTemp.gridx = 4;
+		gbc_btnTemp.gridy = 0;
+		panel.add(btnTemp, gbc_btnTemp);
 		
+	
+// Create the Exercise Panel here========================================================================
+		JPanel Exercise_Panel = new JPanel();
+		frame.getContentPane().add(Exercise_Panel, "");
+		Exercise_Panel.setLayout(null);
+		
+		//Exercise_Panel.add(Rise_small);
 	
 	
 	}
