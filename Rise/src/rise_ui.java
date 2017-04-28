@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import java.awt.GridLayout;
+import java.awt.Image;
+
 import javax.swing.JButton;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -11,13 +13,54 @@ import javax.swing.JTextField;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.LayoutManager;
+
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
+import javax.swing.JLayeredPane;
+import javax.swing.JRadioButton;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.UIManager;
+import javax.swing.JScrollPane;
+import javax.swing.JCheckBox;
+import javax.swing.JTextArea;
+import javax.swing.JSeparator;
+
 
 public class rise_ui {
 
 	private JFrame frame;
 	private JTextField txtUsername;
-	private JTextField txtPassword;
+	private JPasswordField passwordField;
+	private JLabel lblUsername;
+	private JLabel Pswd;
+	private JLabel lblRise_Icon;
+	private JButton btnLogin;
+	private JButton btnCancel;
+	private JPanel Home_panel;
+	private JLayeredPane layeredPane;
+	private JLayeredPane layeredPane_1;
+	private JLabel Welcome_banner;
+	private JLabel Rise_small;
+	private JLabel lblNewLabel_2;
+	private JLabel Rise_image;
+	private JLabel Weather;
+	private JLabel Time_Date;
+	private JScrollPane scrollPane;
+	private JTextArea textArea;
+	private JButton btnNewButton;
+	private JButton btnHome;
+	private JButton btnTemp;
+	private JButton btnExercise;
+	private JButton btnBlinds;
 
 	/**
 	 * Launch the application.
@@ -51,39 +94,172 @@ public class rise_ui {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 		
-		JPanel panel = new JPanel();
-		frame.getContentPane().add(panel, "login_page");
-		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{95, 80, 80, 95};
-		gbl_panel.rowHeights = new int[]{68, 147, 40, 40, 40, 40, 0, 0};
-		gbl_panel.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
-		panel.setLayout(gbl_panel);
+	// This set of code creates the Login Panel, which allows the user to type in their user-name and password.=============================
+	// Action listeners need to be added to check if the User-name and Password match what is "on-file" after pressing login
+		
+		JPanel Login_Panel = new JPanel();
+		frame.getContentPane().add(Login_Panel, "name_1236561112062331");
+		GridBagLayout gbl_Login_Panel = new GridBagLayout();
+		gbl_Login_Panel.columnWidths = new int[]{120, 112, 115, 95};
+		gbl_Login_Panel.rowHeights = new int[]{0, 42, 101, 0, 31, 42, 40, 47, 40, 0, 0, 0};
+		gbl_Login_Panel.columnWeights = new double[]{1.0, 1.0, 1.0, 1.0};
+		gbl_Login_Panel.rowWeights = new double[]{0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
+		Login_Panel.setLayout(gbl_Login_Panel);
+		
+		ImageIcon imageIcon = (new ImageIcon(new ImageIcon("C:\\Images\\SunIcon_Rise.png").getImage().getScaledInstance(300, 225, Image.SCALE_DEFAULT)));
+		
+		Rise_image = new JLabel("");
+		GridBagConstraints gbc_Rise_image = new GridBagConstraints();
+		gbc_Rise_image.gridwidth = 4;
+		gbc_Rise_image.gridheight = 4;
+		gbc_Rise_image.insets = new Insets(0, 0, 5, 0);
+		gbc_Rise_image.gridx = 0;
+		gbc_Rise_image.gridy = 1;
+		Login_Panel.add(Rise_image, gbc_Rise_image);
+		Rise_image.setIcon(imageIcon);
+		
+						
+		lblUsername = new JLabel("Username");
+		GridBagConstraints gbc_lblUsername = new GridBagConstraints();
+		gbc_lblUsername.anchor = GridBagConstraints.NORTHEAST;
+		gbc_lblUsername.insets = new Insets(0, 0, 5, 5);
+		gbc_lblUsername.gridx = 0;
+		gbc_lblUsername.gridy = 5;
+		Login_Panel.add(lblUsername, gbc_lblUsername);
 		
 		txtUsername = new JTextField();
 		GridBagConstraints gbc_txtUsername = new GridBagConstraints();
+		gbc_txtUsername.anchor = GridBagConstraints.NORTH;
 		gbc_txtUsername.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtUsername.insets = new Insets(0, 0, 5, 5);
 		gbc_txtUsername.gridx = 1;
-		gbc_txtUsername.gridy = 2;
-		gbc_txtUsername.gridwidth = 2;  // columns that the textfield stretches over
-		gbc_txtUsername.gridheight = 2; // rows that ....
-		panel.add(txtUsername, gbc_txtUsername);
+		gbc_txtUsername.gridy = 5;
+		gbc_txtUsername.gridwidth = 2;
+		Login_Panel.add(txtUsername, gbc_txtUsername);
 		txtUsername.setColumns(10);
 		
-		txtPassword = new JTextField();
-		GridBagConstraints gbc_txtPassword = new GridBagConstraints();
-		gbc_txtPassword.insets = new Insets(0, 0, 5, 5);
-		gbc_txtPassword.fill = GridBagConstraints.HORIZONTAL;
-		gbc_txtPassword.gridx = 1;
-		gbc_txtPassword.gridy = 4;
-		gbc_txtPassword.gridwidth = 2;
-		gbc_txtPassword.gridheight = 2;
-		panel.add(txtPassword, gbc_txtPassword);
-		txtPassword.setColumns(10);
+		Pswd = new JLabel("Password");
+		GridBagConstraints gbc_Pswd = new GridBagConstraints();
+		gbc_Pswd.anchor = GridBagConstraints.NORTHEAST;
+		gbc_Pswd.insets = new Insets(0, 0, 5, 5);
+		gbc_Pswd.gridx = 0;
+		gbc_Pswd.gridy = 6;
+		Login_Panel.add(Pswd, gbc_Pswd);
 		
-		JButton btnHello = new JButton("hello");
-		frame.getContentPane().add(btnHello);
+		passwordField = new JPasswordField();
+		GridBagConstraints gbc_passwordField = new GridBagConstraints();
+		gbc_passwordField.anchor = GridBagConstraints.NORTH;
+		gbc_passwordField.gridwidth = 2;
+		gbc_passwordField.insets = new Insets(0, 0, 5, 5);
+		gbc_passwordField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_passwordField.gridx = 1;
+		gbc_passwordField.gridy = 6;
+		Login_Panel.add(passwordField, gbc_passwordField);
+		
+		btnLogin = new JButton("Login");
+		GridBagConstraints gbc_btnLogin = new GridBagConstraints();
+		gbc_btnLogin.insets = new Insets(0, 0, 5, 5);
+		gbc_btnLogin.gridx = 1;
+		gbc_btnLogin.gridy = 7;
+		Login_Panel.add(btnLogin, gbc_btnLogin);
+		
+		btnCancel = new JButton("Cancel");
+		GridBagConstraints gbc_btnCancel = new GridBagConstraints();
+		gbc_btnCancel.insets = new Insets(0, 0, 5, 5);
+		gbc_btnCancel.gridx = 2;
+		gbc_btnCancel.gridy = 7;
+		Login_Panel.add(btnCancel, gbc_btnCancel);
+		ImageIcon imageIcon_small = (new ImageIcon(new ImageIcon("C:\\Images\\SunIcon_Rise.png").getImage().getScaledInstance(80, 60, Image.SCALE_DEFAULT)));
+		TitledBorder title;
+		title = BorderFactory.createTitledBorder("Weather");
+		Border empty = BorderFactory.createEmptyBorder();
+		
+//This set of code creates the Home panel===========================================================================
+		
+		Home_panel = new JPanel();
+		frame.getContentPane().add(Home_panel, "name_1236601911399576");
+		Home_panel.setLayout(null);
+		
+		Rise_small = new JLabel("");
+		Rise_small.setBounds(21, 13, 67, 60);
+		Rise_small.setFont(new Font("Segoe Script", Font.PLAIN, 13));
+		Home_panel.add(Rise_small);
+		Rise_small.setIcon(imageIcon_small);
+		
+		Welcome_banner = new JLabel("Welcome");
+		Welcome_banner.setBounds(116, 19, 155, 54);
+		Welcome_banner.setForeground(new Color(255, 102, 51));
+		Welcome_banner.setFont(new Font("Script MT Bold", Font.PLAIN, 44));
+		Welcome_banner.setBackground(Color.CYAN);
+		Home_panel.add(Welcome_banner);
+		
+		Time_Date = new JLabel("[create clock code]");
+		Time_Date.setBounds(16, 79, 314, 115);
+		Time_Date.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Right now, it is...", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 255)));
+		Home_panel.add(Time_Date);
+		
+		Weather = new JLabel("[import weather data]");
+		Weather.setBounds(16, 199, 314, 106);
+		Home_panel.add(Weather);
+		Weather.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Weather", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 255)));
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(16, 310, 314, 194);
+		scrollPane.setViewportBorder(new TitledBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Notes ", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 255)), "Notes", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 255)));
+		scrollPane.setBorder(empty);
+		Home_panel.add(scrollPane);
+		
+		textArea = new JTextArea();
+		textArea.setRows(2);
+		scrollPane.setViewportView(textArea);
+		
+		btnNewButton = new JButton("Save");
+		btnNewButton.setBounds(269, 512, 61, 25);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		Home_panel.add(btnNewButton);
+		
+		JButton btnSeeAllNotes = new JButton("See All Notes");
+		btnSeeAllNotes.setBounds(21, 512, 115, 25);
+		Home_panel.add(btnSeeAllNotes);
+		
+		
+	// Bottom banner buttons allow the user to navigate between the different functions================================
+		//Home, Exercise, SmartBlinds, SmartTemp
+		
+		ImageIcon HomeIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Home.png").getImage().getScaledInstance(32, 24, Image.SCALE_DEFAULT)));
+		
+		ImageIcon WeightIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Weight.png").getImage().getScaledInstance(40, 30, Image.SCALE_DEFAULT)));
+		
+		ImageIcon BlindsIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Blinds.png").getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+		
+		ImageIcon TempIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Temp.png").getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+		
+		
+		btnHome = new JButton("");
+		btnHome.setBounds(21, 550, 73, 29);
+		Home_panel.add(btnHome);
+		btnHome.setIcon(HomeIcon);
+		
+		
+		btnExercise = new JButton("");
+		btnExercise.setBounds(99, 550, 73, 29);
+		Home_panel.add(btnExercise);
+		btnExercise.setIcon(WeightIcon);
+		
+		btnBlinds = new JButton("");
+		btnBlinds.setBounds(177, 550, 73, 29);
+		Home_panel.add(btnBlinds);
+		btnBlinds.setIcon(BlindsIcon);
+		
+		btnTemp = new JButton("");
+		btnTemp.setBounds(252, 550, 73, 29);
+		Home_panel.add(btnTemp);
+		btnTemp.setIcon(TempIcon);
+		
+	
+	
 	}
-// making a change!!!! here
 }
