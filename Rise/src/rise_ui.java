@@ -34,6 +34,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JTextArea;
 import javax.swing.JSeparator;
 
+import bottombanner.BottomBanner;
+
 
 public class rise_ui {
 
@@ -57,10 +59,6 @@ public class rise_ui {
 	private JScrollPane scrollPane;
 	private JTextArea textArea;
 	private JButton btnNewButton;
-	private JButton btnHome;
-	private JButton btnTemp;
-	private JButton btnExercise;
-	private JButton btnBlinds;
 
 	/**
 	 * Launch the application.
@@ -225,41 +223,12 @@ public class rise_ui {
 		btnSeeAllNotes.setBounds(21, 512, 115, 25);
 		Home_panel.add(btnSeeAllNotes);
 		
+		BottomBanner ban_butt = new BottomBanner();
 		
-	// Bottom banner buttons allow the user to navigate between the different functions================================
-		//Home, Exercise, SmartBlinds, SmartTemp
-		
-		ImageIcon HomeIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Home.png").getImage().getScaledInstance(32, 24, Image.SCALE_DEFAULT)));
-		
-		ImageIcon WeightIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Weight.png").getImage().getScaledInstance(40, 30, Image.SCALE_DEFAULT)));
-		
-		ImageIcon BlindsIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Blinds.png").getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
-		
-		ImageIcon TempIcon = (new ImageIcon(new ImageIcon("C:\\Images\\Temp.png").getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
-		
-		
-		btnHome = new JButton("");
-		btnHome.setBounds(21, 550, 73, 29);
-		Home_panel.add(btnHome);
-		btnHome.setIcon(HomeIcon);
-		
-		
-		btnExercise = new JButton("");
-		btnExercise.setBounds(99, 550, 73, 29);
-		Home_panel.add(btnExercise);
-		btnExercise.setIcon(WeightIcon);
-		
-		btnBlinds = new JButton("");
-		btnBlinds.setBounds(177, 550, 73, 29);
-		Home_panel.add(btnBlinds);
-		btnBlinds.setIcon(BlindsIcon);
-		
-		btnTemp = new JButton("");
-		btnTemp.setBounds(252, 550, 73, 29);
-		Home_panel.add(btnTemp);
-		btnTemp.setIcon(TempIcon);
-		
-	
-	
+		Home_panel.add(ban_butt.btnHome);
+		Home_panel.add(ban_butt.btnExercise);
+		Home_panel.add(ban_butt.btnBlinds);
+		Home_panel.add(ban_butt.btnTemp);
+
 	}
 }
